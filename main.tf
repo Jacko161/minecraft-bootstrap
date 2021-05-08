@@ -1,11 +1,26 @@
+variable "region" {
+  type = string
+  default = "ap-southeast-2"
+}
+
+variable "keypair_name" {
+  type = string
+  default = "minecraft"
+}
+
+variable "pem_location" {
+    type = string
+    default = "~/.ssh/server.pem"
+}
+
 provider "aws" {
-  region = "ap-southeast-2"
+  region = var.region
 }
 
 resource "aws_instance" "web" {
   ami           = "ami-0ce84f166e6e3ad45"
   instance_type = "t4g.medium"
-  key_name      = "minecraft"
+  key_name      = var.keypair_name
 
   vpc_security_group_ids = [aws_security_group.allow_minecraft_port.id, aws_security_group.allow_ssh.id]
 
@@ -17,7 +32,7 @@ resource "aws_instance" "web" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("~/.ssh/server.pem")
+      private_key = file(var.pem_location)
       host        = aws_instance.web.public_ip
     }
   }
@@ -30,7 +45,7 @@ resource "aws_instance" "web" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("~/.ssh/server.pem")
+      private_key = file(var.pem_location)
       host        = aws_instance.web.public_ip
     }
   }
