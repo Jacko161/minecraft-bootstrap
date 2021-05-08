@@ -1,7 +1,7 @@
 This job spins up a t4g.medium server with Amazon Linux 2 and configures it to run a minecraft server as a Systemd unit. You will need the following to run this:
 
 1 - Terraform installed and configured, if you are on mac run
-```terraform
+```bash
 brew install terraform
 export AWS_ACCESS_KEY_ID=(your aws access key id)
 export AWS_SECRET_ACCESS_KEY=(your aws secret key)
