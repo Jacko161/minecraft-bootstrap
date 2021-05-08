@@ -7,6 +7,7 @@ This job spins up a t4g.medium server with Amazon Linux 2 and configures it to r
         export AWS_ACCESS_KEY_ID=(your aws access key id)
         export AWS_SECRET_ACCESS_KEY=(your aws secret key)
         ```
+        
 2 - Obvious an AWS account with an IAM user with the AmazonEC2FullAccess permission (or atleast permission to create an ec2 instance and security groups), you will also need a keypair configured with the name minecraft (or just change the default var)
 
 Perform the following steps to spin up the server:
