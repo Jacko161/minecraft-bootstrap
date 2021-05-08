@@ -38,3 +38,5 @@ curl $URI > /opt/mc-server/server.jar
 java -Xmx1024M -Xms1024M -jar /opt/mc-server/server.jar nogui
 chown -R minecraft:minecraft /opt/mc-server/
 sed -i 's/=false/=true/g' /opt/mc-server/eula.txt
+
+echo "Run 'sudo systemctl start mc-server' to start your server"

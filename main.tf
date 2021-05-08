@@ -20,18 +20,18 @@ resource "aws_instance" "web" {
       private_key = file("~/.ssh/server.pem")
       host        = aws_instance.web.public_ip
     }
+  }
 
-    provisioner "remote-exec" {
-      inline = [
-        "chmod +x /home/ec2-user/bootstrap-server.sh"
-      ]
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /home/ec2-user/bootstrap-server.sh"
+    ]
 
-      connection {
-        type        = "ssh"
-        user        = "ec2-user"
-        private_key = file("~/.ssh/server.pem")
-        host        = aws_instance.web.public_ip
-      }
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      private_key = file("~/.ssh/server.pem")
+      host        = aws_instance.web.public_ip
     }
   }
 
@@ -71,6 +71,14 @@ resource "aws_security_group" "allow_ssh" {
     description = "SSH traffic"
     from_port   = 22
     to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    description = "HTTPS outbound traffic"
+    from_port   = 443
+    to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
