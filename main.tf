@@ -7,7 +7,7 @@ resource "aws_instance" "web" {
   instance_type = var.instance_size
   key_name      = var.keypair_name
 
-  vpc_security_group_ids = [aws_security_group.allow_minecraft_port.id, aws_security_group.allow_ssh.id]
+  vpc_security_group_ids = [aws_security_group.allow_egress_https.id, aws_security_group.allow_minecraft_port.id, aws_security_group.allow_ssh.id]
 
 
   provisioner "file" {
