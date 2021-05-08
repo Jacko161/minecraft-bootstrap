@@ -2,8 +2,8 @@ This job spins up a t4g.medium server with Amazon Linux 2 and configures it to r
 
 1 - Terraform installed and configured, if you are on mac run
         ```terraform
+        
         brew install terraform
-
         export AWS_ACCESS_KEY_ID=(your aws access key id)
         export AWS_SECRET_ACCESS_KEY=(your aws secret key)
         ```
