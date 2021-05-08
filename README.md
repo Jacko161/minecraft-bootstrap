@@ -1,5 +1,5 @@
 
-#Overview
+# Overview
 This job spins up a `t4g.medium` server with Amazon Linux 2 and configures it to run a minecraft server as a Systemd unit. You will need the following to run this:
 
 1. Terraform installed and configured, if you are on mac run
