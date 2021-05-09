@@ -9,7 +9,7 @@ export AWS_ACCESS_KEY_ID=(your aws access key id)
 export AWS_SECRET_ACCESS_KEY=(your aws secret key)
 ```
 
-1. Obvious an AWS account with an IAM user with the AmazonEC2FullAccess permission (or atleast permission to create an ec2 instance and security groups), you will also need a keypair configured (defaults to minecraft but you can just change the default var)
+2. An AWS account with an IAM user with the AmazonEC2FullAccess permission (or atleast permission to create an ec2 instance and security groups), you will also need a keypair configured (defaults to minecraft but you can just change the default var)
 
 **Note:** Spinning up cloud resources will cost you $$, so be mindful of destroying the instance when you are done.
 
