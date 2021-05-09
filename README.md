@@ -9,7 +9,7 @@ export AWS_ACCESS_KEY_ID=(your aws access key id)
 export AWS_SECRET_ACCESS_KEY=(your aws secret key)
 ```
 
-2. Obvious an AWS account with an IAM user with the AmazonEC2FullAccess permission (or atleast permission to create an ec2 instance and security groups), you will also need a keypair configured with the name minecraft (or just change the default var)
+1. Obvious an AWS account with an IAM user with the AmazonEC2FullAccess permission (or atleast permission to create an ec2 instance and security groups), you will also need a keypair configured (defaults to minecraft but you can just change the default var)
 
 **Note:** Spinning up cloud resources will cost you $$, so be mindful of destroying the instance when you are done.
 
@@ -17,8 +17,15 @@ export AWS_SECRET_ACCESS_KEY=(your aws secret key)
 Perform the following steps to spin up the server:
 1. Open the directory with this README in it via command line, update the vars in variables.tf to configure the server to your liking.
 2. Run `terraform apply`
-3. Ssh onto the server as ec2-user (run `ssh -i "/path/to/pem/file" ec2-user@ec2.ip.address`)
-4. Run `sudo ./bootstrap-server.sh` 
+3. The IP Address for your server will be printed at the end of the job:
+```
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+server_ip = "ip address"
+```
+4. The server will be live now and available over port 25565, use the outputted ip address to connect from your minecraft client.
 
 
 ## Maintaining the Server

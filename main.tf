@@ -24,7 +24,9 @@ resource "aws_instance" "web" {
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /home/ec2-user/bootstrap-server.sh"
+      "chmod +x /home/ec2-user/bootstrap-server.sh",
+      "sudo ~/bootstrap-server.sh",
+      "rm -rf /home/ec2-user/bootstrap-server.sh"
     ]
 
     connection {
@@ -93,4 +95,8 @@ resource "aws_security_group" "allow_ssh" {
   tags = {
     Name = "Allow ingress ssh"
   }
+}
+
+output "server_ip" {
+  value = aws_instance.web.public_ip
 }
