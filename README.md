@@ -37,3 +37,6 @@ server_ip = "ip address"
 ## Destroying the server
 When you are finished you should consider making a backup of your world, when you are ready to destroy the server run
 `terraform destroy` from this directory and Terraform will clean up the resources.
+
+## Note
+This Terraform uploads the bootstrap-script to the server and executes it to create the server. Ideally this would be done by a more appropriate tool (however, this is nice in this pattern so everything is in the one spot).
